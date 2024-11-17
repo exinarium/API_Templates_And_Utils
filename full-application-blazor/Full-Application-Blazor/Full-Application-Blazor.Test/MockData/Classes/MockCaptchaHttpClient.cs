@@ -1,0 +1,179 @@
+﻿using System.Net.Http.Headers;
+using System.Text.Json;
+using Full_Application_Blazor.Utils.Helpers.Interfaces;
+
+namespace Full_Application_Blazor.Test.MockData.Classes
+{
+    public class MockCaptchaHttpClient : IHttpClientWrapper
+    {
+        private readonly HttpRequestMessage _requestMessage;
+
+        public MockCaptchaHttpClient()
+        {
+            _requestMessage = new HttpRequestMessage();
+        }
+
+        public Uri BaseAddress { get; set; }
+
+        public HttpRequestHeaders DefaultRequestHeaders
+        {
+            get => _requestMessage.Headers;
+        }
+
+        public bool IsError { get; set; } = false;
+        public bool IsNoContent { get; set; } = false;
+        public bool IsUnknownError { get; set; } = false;
+
+        public Task<HttpResponseMessage> GetAsync(string? requestUri)
+        {
+            if (IsError)
+            {
+                return Task.FromResult(
+                    new HttpResponseMessage
+                    {
+                        StatusCode = System.Net.HttpStatusCode.OK,
+                        Content = new StringContent(JsonSerializer.Serialize(new
+                        {
+                            success = true,
+                            error_code = "invalid-input-secret"
+                        }))
+                    });
+
+            }
+            else if (IsUnknownError)
+            {
+                return Task.FromResult(
+                    new HttpResponseMessage
+                    {
+                        StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                        Content = new StringContent(JsonSerializer.Serialize(new
+                        {
+                            success = false,
+                            error_code = "Something Went Wrong"
+                        }))
+                    });
+            }
+            else
+            {
+                return Task.FromResult(
+                    new HttpResponseMessage
+                    {
+                        StatusCode = System.Net.HttpStatusCode.OK,
+                        Content = new StringContent(JsonSerializer.Serialize(new
+                        {
+                            success = true,
+                            challenge_ts = DateTime.Now,
+                            hostname = "testkey.google.com"
+                        }))
+                    });
+            }
+        }
+
+        public object GetStreamAsync(string? requestUri)
+        {
+            if (IsError)
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                    Content = new StringContent(JsonSerializer.Serialize(new
+                    {
+                        success = false,
+                        error_code = "invalid-input-secret",
+                        code = 200
+                    }))
+                };
+            }
+            else if (IsUnknownError)
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                    Content = new StringContent(JsonSerializer.Serialize(new
+                    {
+                        success = false,
+                        error_code = "Something Went Wrong",
+                        code = 500
+
+                    }))
+                };
+            }
+            else if (IsNoContent)
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.NoContent,
+                    Content = new StringContent(string.Empty)
+                };
+            }
+            else
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.OK,
+                    Content = new StringContent(JsonSerializer.Serialize(new
+                    {
+                        success = true,
+                        challenge_ts = DateTime.Now,
+                        hostname = "testkey.google.com",
+                        code = 200
+
+                    }))
+                };
+            }
+        }
+
+        public async Task<HttpResponseMessage> PostAsync(string requestUri, HttpContent content)
+        {
+            if(IsError)
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                    Content = new StringContent(JsonSerializer.Serialize(new
+                    {
+                        success = false,
+                        error_code = "invalid-input-secret",
+                        code = 200
+                    }))
+                };
+            }
+            else if(IsUnknownError)
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.InternalServerError,
+                    Content = new StringContent(JsonSerializer.Serialize(new
+                    {
+                        success = false,
+                        error_code = "Something Went Wrong",
+                        code = 500
+                    }))
+                };
+            }
+            else if(IsNoContent)
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.NoContent,
+                    Content = new StringContent(string.Empty)
+                };
+            }
+            else
+            {
+                return new HttpResponseMessage
+                {
+                    StatusCode = System.Net.HttpStatusCode.OK,
+                    Content = new StringContent(JsonSerializer.Serialize(new
+                    {
+                        success = true,
+                        challenge_ts = DateTime.Now,
+                        hostname = "testkey.google.com",
+                        code = 200
+                    }))
+                };
+            }
+        }
+    }
+}
+

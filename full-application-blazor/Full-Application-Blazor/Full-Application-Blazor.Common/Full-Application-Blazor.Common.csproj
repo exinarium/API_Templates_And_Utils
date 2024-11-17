@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.1</TargetFramework>
+		<RootNamespace>Full_Application_Blazor.Common</RootNamespace>
+		<Nullable>enable</Nullable>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="System.Text.Json" Version="7.0.2" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="System.ComponentModel.Annotations" />
+		<None Remove="Objects\" />
+		<None Remove="Requests\" />
+		<None Remove="Responses\" />
+		<None Remove="Objects\Base\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Full-Application-Blazor.Utils\Full-Application-Blazor.Utils.csproj" />
+	</ItemGroup>
+</Project>

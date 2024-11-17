@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Full_Application_Blazor</RootNamespace>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="graphiql" Version="2.0.0" />
+    <PackageReference Include="GraphQL.Server.Transports.AspNetCore" Version="7.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Prometheus.Client.MetricPusher" Version="3.1.0" />
+    <PackageReference Include="Prometheus.Client.DependencyInjection" Version="1.2.1" />
+    <PackageReference Include="Hangfire" Version="1.7.33" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Middleware\" />
+    <None Remove="Prometheus.Client.MetricPusher" />
+    <None Remove="Prometheus.Client.DependencyInjection" />
+    <None Remove="Controllers\" />
+    <None Remove="Hangfire.Mongo" />
+    <None Remove="Hangfire.AspNetCore" />
+    <None Remove="Hangfire" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="AspNetCore.Identity.MongoDbCore" />
+    <None Remove="DependencyInjection\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Full-Application-Blazor.Domain\Full-Application-Blazor.Domain.csproj" />
+  </ItemGroup>
+</Project>

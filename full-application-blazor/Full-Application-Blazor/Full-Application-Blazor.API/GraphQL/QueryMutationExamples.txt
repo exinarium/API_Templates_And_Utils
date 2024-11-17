@@ -1,0 +1,152 @@
+﻿############################## CreateReview ##############################
+
+mutation CreateReview($createReview: ReviewRequestType) {
+  createReview(createReview: $createReview) {
+    id
+    reviewerProfileID
+    revieweeProfileID
+    comment
+    rating
+  }
+}
+
+
+///// Variables
+{
+  "createReview": {
+    "reviewerProfileID": "63ee5628f0668a7da3df8b0b",
+    "revieweeProfileID": "63ee5628f0668a7da3df8b0b",
+    "comment": "Testing Comment",
+    "rating": 1
+  }
+}
+
+############################## UpdateReview ##############################
+
+mutation UpdateReview($review:ReviewRequestType)
+{
+    editReview(editReview:$review, id:"63f8b07013730fd7797b095d")
+  	{
+      id
+    	reviewerProfileID
+    	revieweeProfileID
+    	comment
+    	rating
+  	}
+}
+
+///// Variables
+{
+  "review": {
+    "reviewerProfileID": "63ee5628f0668a7da3df8b0b",
+    "revieweeProfileID": "63ee5628f0668a7da3df8b0b",
+    "comment": "Testing Comment",
+    "rating": 1
+  }
+}
+
+############################## DeleteReview ##############################
+
+mutation DeleteReview($id:String)
+{
+    deleteReview(deleteReview:$id)
+  	{
+      id
+    	reviewerProfileID
+    	revieweeProfileID
+    	comment
+    	rating
+  	}
+}
+
+///// Variables
+{
+  "id":"63f8b07013730fd7797b095d"
+}
+
+############################## GetReview ##############################
+query GetReview($id:String)
+{
+    getAsync(getAsync:$id)
+  	{
+      id
+    	reviewerProfileID
+    	revieweeProfileID
+    	comment
+    	rating
+  	}
+}
+
+///// Variables
+{
+  "id":"63fc6d2c585d8c2fc1a7b0ae"
+}
+
+########### GetAllReviews ###########
+query GetAllReviews
+{
+  getAllAsync
+	{
+		id
+   	reviewerProfileID
+    comment
+	}
+}
+
+############################## GetAllReviews() ##############################
+query GetAllReviews($getSome:ListRequestType)
+{
+  getAllAsync(searchParameters: $getSome)
+	{
+    pageNumber
+    hasMoreResults
+    results
+    {
+      id
+      reviewerProfileID
+    }
+	}
+}
+
+///// Variables (Order)
+{
+  "getSome": {
+    "order": {
+      "sortDirection": "ASCENDING",
+      "propertyName": "rating"
+    },
+    "pageNumber": 1,
+    "itemsPerPage": 90
+  }
+}
+
+///// Variables (Search)
+{
+  "getSome": {
+    "search": {
+      "searchString": "afgfdahgasdsgrsa",
+      "properties": 
+      [
+        "Comment"
+      ]
+    },
+    
+    "pageNumber": 1,
+    "itemsPerPage": 90
+  }
+}
+
+///// Variables (Filter)
+{
+  "getSome": {
+    "filters": [
+      {
+        "property": "Comment",
+        "operator": "EQ",
+        "value": "afgfdahgasdsgrsa"
+      }
+    ],
+    "pageNumber": 1,
+    "itemsPerPage": 90
+  }
+}

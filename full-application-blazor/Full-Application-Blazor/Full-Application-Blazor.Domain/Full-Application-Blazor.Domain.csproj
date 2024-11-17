@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Full_Application_Blazor.Domain</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Aggregates\" />
+    <None Remove="Models\" />
+    <None Remove="Configuration\" />
+    <None Remove="Mappers\" />
+    <None Remove="Aggregates\Auth\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Aggregates\Auth\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="GraphQL" Version="7.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Full-Application-Blazor.Common\Full-Application-Blazor.Common.csproj" />
+    <ProjectReference Include="..\Full-Application-Blazor.Utils\Full-Application-Blazor.Utils.csproj" />
+  </ItemGroup>
+</Project>

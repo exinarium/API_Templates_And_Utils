@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Full_Application_Blazor.Utils</RootNamespace>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Helpers\" />
+    <None Remove="Helpers\Classes\" />
+    <None Remove="Helpers\Enums\" />
+    <None Remove="MongoDB.Driver" />
+    <None Remove="Models\" />
+    <None Remove="Repositories\" />
+    <None Remove="Helpers\Interfaces\" />
+    <None Remove="Microsoft.Extensions.DependencyInjection" />
+    <None Remove="Microsoft.Extensions.Options" />
+    <None Remove="Helpers\Utilities\" />
+    <None Remove="System.Text.Json" />
+    <None Remove="Microsoft.CSharp" />
+    <None Remove="Helpers\Constants\" />
+    <None Remove="Services\" />
+    <None Remove="Services\SMS\" />
+    <None Remove="Services\Plan\" />
+    <None Remove="Services\Payment\" />
+    <None Remove="Services\Logger\" />
+    <None Remove="Services\Invoice\" />
+    <None Remove="Services\Entity\" />
+    <None Remove="Services\Email\" />
+    <None Remove="Services\Captcha\" />
+    <None Remove="Services\AuditLog\" />
+    <None Remove="Helpers\Classes\Database\" />
+    <None Remove="Models\Database\" />
+    <None Remove="Models\JSON\" />
+    <None Remove="Hangfire.Mongo" />
+    <None Remove="AspNetCore.Identity.MongoDbCore" />
+    <None Remove="Helpers\Classes\Seed\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
+    <Folder Include="Helpers\Utilities\" />
+    <Folder Include="Helpers\Interfaces\" />
+    <Folder Include="Services\SMS\" />
+    <Folder Include="Services\Plan\" />
+    <Folder Include="Services\Payment\" />
+    <Folder Include="Services\Logger\" />
+    <Folder Include="Services\Invoice\" />
+    <Folder Include="Services\Entity\" />
+    <Folder Include="Services\Email\" />
+    <Folder Include="Services\Captcha\" />
+    <Folder Include="Services\AuditLog\" />
+    <Folder Include="Helpers\Classes\Database\" />
+    <Folder Include="Models\JSON\" />
+    <Folder Include="Helpers\Classes\Seed\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+    <PackageReference Include="MongoDB.Driver.GridFS" Version="2.19.0" />
+    <PackageReference Include="System.Text.Json" Version="7.0.2" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Twilio" Version="6.2.3" />
+    <PackageReference Include="Hangfire.Mongo" Version="1.9.2" />
+    <PackageReference Include="AspNetCore.Identity.MongoDbCore" Version="3.1.2" />
+  </ItemGroup>
+</Project>

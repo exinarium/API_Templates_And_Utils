@@ -1,0 +1,102 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Full_Application_Blazor.Test</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Mongo2Go" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="7.0.3" />
+    <PackageReference Include="System.Text.Json" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Mongo2Go" />
+    <None Remove="Utils\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Models\" />
+    <None Remove="Scripts\" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_Config.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_DatabaseConfig.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_EmailConfig.html" />
+    <None Remove="TestResults\Report\class.js" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_Email.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_Filter_1.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_Order.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_Search.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_BaseModel.html" />
+    <None Remove="TestResults\Report\Full_Application_Blazor.Utils_Repository_1.html" />
+    <None Remove="TestResults\Report\index.html" />
+    <None Remove="TestResults\Report\report.css" />
+    <None Remove="TestResults\Report\icon_up-dir.svg" />
+    <None Remove="TestResults\Report\icon_up-dir_active.svg" />
+    <None Remove="TestResults\Report\icon_down-dir_active.svg" />
+    <None Remove="TestResults\Report\icon_info-circled.svg" />
+    <None Remove="TestResults\Report\icon_plus.svg" />
+    <None Remove="TestResults\Report\icon_minus.svg" />
+    <None Remove="TestResults\Report\icon_wrench.svg" />
+    <None Remove="TestResults\Report\icon_fork.svg" />
+    <None Remove="TestResults\Report\icon_cube.svg" />
+    <None Remove="TestResults\Report\icon_search-plus.svg" />
+    <None Remove="TestResults\Report\icon_search-minus.svg" />
+    <None Remove="TestResults\Report\icon_star.svg" />
+    <None Remove="TestResults\Report\icon_sponsor.svg" />
+    <None Remove="TestResults\Report\icon_down-dir_active_dark.svg" />
+    <None Remove="TestResults\Report\icon_info-circled_dark.svg" />
+    <None Remove="TestResults\Report\icon_plus_dark.svg" />
+    <None Remove="TestResults\Report\icon_minus_dark.svg" />
+    <None Remove="TestResults\Report\icon_wrench_dark.svg" />
+    <None Remove="TestResults\Report\icon_fork_dark.svg" />
+    <None Remove="TestResults\Report\icon_cube_dark.svg" />
+    <None Remove="TestResults\Report\icon_search-plus_dark.svg" />
+    <None Remove="TestResults\Report\icon_search-minus_dark.svg" />
+    <None Remove="TestResults\Report\icon_star_dark.svg" />
+    <None Remove="TestResults\Report\main.js" />
+    <None Remove="TestResults\Report\index.htm" />
+    <None Remove="MockData\Repository\" />
+    <None Remove="Utils\Utilities\" />
+    <None Remove="MockData\Enums\" />
+    <None Remove="Microsoft.AspNetCore.TestHost" />
+    <None Remove="Api\" />
+    <None Remove="Api\Middleware\" />
+    <None Remove="MockData\Classes\" />
+    <None Remove="System.Text.Json" />
+    <None Remove="Utils\Services\" />
+    <None Remove="MockData\Files\" />
+    <None Remove="Domain\" />
+    <None Remove="Domain\Aggregates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MockData\Models\" />
+    <Folder Include="MockData\Repository\" />
+    <Folder Include="Utils\Utilities\" />
+    <Folder Include="Utils\Models\Database" />
+    <Folder Include="MockData\Enums\" />
+    <Folder Include="Api\" />
+    <Folder Include="Api\Middleware\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Domain\Aggregates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Full-Application-Blazor.Utils\Full-Application-Blazor.Utils.csproj" />
+    <ProjectReference Include="..\Full-Application-Blazor.API\Full-Application-Blazor.API.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="MockData\Files\MockTest.txt" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup>
+</Project>
